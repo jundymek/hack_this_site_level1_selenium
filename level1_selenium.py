@@ -33,7 +33,7 @@ class Level1:
         """
         self.driver.get('https://www.hackthissite.org/missions/prog/1/')
         html = self.driver.page_source
-        soup = BeautifulSoup(html)
+        soup = BeautifulSoup(html, features="html.parser")
         x = soup.find_all('li')[-10:]
         words_to_unscramble = [word.get_text().strip() for word in x]
         return words_to_unscramble
